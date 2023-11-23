@@ -1,0 +1,6 @@
+.caja {
+    background-color: transparent;
+    border-radius: var(--radiusPrimario);
+    min-height: calc(100vh - 200px);
+    margin-bottom: 1rem;
+}
