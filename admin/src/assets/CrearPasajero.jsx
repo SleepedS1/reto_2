@@ -1,13 +1,14 @@
 import React from 'react'
 import Box from './Box'
-import { Link } from 'react-router-dom';
-import MyBoton from './MyBoton';
 
-function GestionVuelos() {
-    return (
-        <Box>
-            <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
-               
+function CrearPasajero() {
+  return (
+    <Box>
+            <div className='flex w-full justify-between bg-white rounded-xl px-5 py-3 shadow-lg'>
+                <MyBoton
+                    text={'Gestion de vuelos'}
+                    linkTo={'/GestionVuelos'}
+                />
                 <div className='flex gap-2 '>
                     <MyBoton
                         text={'Crear pasajero'}
@@ -135,7 +136,7 @@ function GestionVuelos() {
                 </table>
             </div>
         </Box>
-    )
+  )
 }
 
-export default GestionVuelos
+export default CrearPasajero

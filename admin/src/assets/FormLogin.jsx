@@ -14,6 +14,10 @@ function FormLogin() {
                     text={'Gestion de vuelos'}
                     linkTo={'/GestionVuelos'}
                 />
+                <MyBoton
+                    text={'Lista de pasajeros'}
+                    linkTo={'/ListaPasajeros'}
+                />
             </div>
 
             <div className="w-9/12 max-w-md ">
