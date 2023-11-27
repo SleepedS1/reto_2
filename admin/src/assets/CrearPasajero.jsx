@@ -2,7 +2,6 @@ import React from 'react'
 import Box from './Box'
 import MyBoton from './MyBoton'
 
-
 function CrearPasajero() {
     return (
         <Box>
@@ -24,79 +23,86 @@ function CrearPasajero() {
                 </div>
             </div>
             <br />
-            <form className="w-full bg-white flex flex-col px-4 py-4">
+            <form className="w-full bg-white rounded-lg flex flex-col px-4 py-4">
                 <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
-                <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Identificacion
-                        </label>
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                            <option value="2">959565</option>
-                            <option value="3">959565</option>
-                            <option value="4">959565</option>
-                        </select>
-                    </div>
                     <div className="">
                         <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Nombres
-                        </label>
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                            <option value="2">959565</option>
-                            <option value="3">959565</option>
-                            <option value="4">959565</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Sala de abordaje
-                        </label>
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">No encontrado</option>
-
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Destinos
-                        </label>
-
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                            <option value="2">959565</option>
-                            <option value="3">959565</option>
-                            <option value="4">959565</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="horaSalida" className="block mb-2 font-bold">
-                            Hora de salida
+                            Identificacion:
                         </label>
                         <input
-                            type='time'
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-
+                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
                     <div className="">
-                        <label htmlFor="horaLlegada" className="block mb-2 font-bold">
-                            Hora de llegada
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Nombres:
                         </label>
                         <input
-                            type='time'
+                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        />
+                    </div>
+                    <div className="">
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Apellidos:
+                        </label>
+                        <input
                             className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
+                    </div>
+                    <div className="">
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Email:
+                        </label>
+                        <input
+                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        />
+                    </div>
+                    <div className="">
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Telefono:
+                        </label>
+                        <input
+                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        />
+                    </div>
+                    <div className="">
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Vuelo:
+                        </label>
+
+                        <select
+                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="1">Armenia</option>
+                            <option value="2">959565</option>
+                            <option value="3">959565</option>
+                            <option value="4">959565</option>
+                        </select>
+                    </div>
+                    <div className="flex justify-center h-full bg-gray-100 rounded-xl py-2">
+                        <label htmlFor="profilePicture" className="flex items-center gap-2 cursor-pointer">
+                            <input
+                                type="file"
+                                id="profilePicture"
+                                className="hidden"
+                                accept="image/*"
+                            />
+                            <div className="bg-gray-200 w-32 h-32 flex items-center justify-center rounded-lg overflow-hidden">
+                                <img
+
+                                    alt="Profile"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <span className="bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-8 rounded-lg ">Subir foto</span>
+                        </label>
                     </div>
                 </div>
 
-                <div className="w-full flex items-center justify-start">
-                    <button
-                        className=" bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-8 rounded-lg focus:outline-none focus:shadow-outline"
-                        type="button"
-                    >
-                        REGISTRAR
-                    </button>
+                <div className="w-full flex items-center justify-start py-3">
+                    <MyBoton
+                        text={'REGISTRAR'}
+                        className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
+                    />
                 </div>
             </form>
         </Box>
