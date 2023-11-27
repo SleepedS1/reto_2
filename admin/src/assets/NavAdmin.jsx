@@ -1,10 +1,11 @@
 import React from 'react'
 import MyBoton from './MyBoton'
+import estilos from './navAdmin.module.css'
 
 function NavAdmin() {
     return (
         <>
-            <nav className=" w-full bg-blue-700 items-center text-white p-4 flex items-center shadow-md justify-between m-auto py-4 px-7">
+            <nav className={`${estilos.navAdmin} w-full bg-blue-800 items-center flex items-center text-white shadow-md justify-between m-auto py-4 px-7`}>
                 <div className="flex items-center">
                     <img src="src/img/logo.png" alt="logoDorado" className="h-14 w-auto mr-4" />
                     <h1 className="text-lg font-bold">Panel administrativo</h1>

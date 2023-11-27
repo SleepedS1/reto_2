@@ -6,25 +6,39 @@ function FormLogin() {
     return (
         <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-wrap min-h-screen`} >
             <div className='w-4/12' >
-                <h1 className='text-white font-bold text-5xl'>Bienvenido</h1>
+                <h1 className='text-white font-bold text-7xl'>Bienvenido</h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elitt.
                 </p>
-                <MyBoton
-                    text={'Gestion de vuelos'}
-                    linkTo={'/GestionVuelos'}
-                />
-                <MyBoton
-                    text={'Lista de pasajeros'}
-                    linkTo={'/ListaPasajeros'}
-                />
+                <div className='flex gap-2 items-center '>
+                    <MyBoton
+                        text={'Gestion de vuelos'}
+                        linkTo={'/GestionVuelos'}
+                        className={'bg-white rounded-xl px-2 py-1'}
+                    />
+                    <MyBoton
+                        text={'Lista de pasajeros'}
+                        linkTo={'/ListaPasajeros'}
+                        className={'bg-white rounded-xl px-2 py-1'}
+                    />
+                     <MyBoton
+                        text={'Crear pasajero'}
+                        linkTo={'/CrearPasajero'}
+                        className={'bg-white rounded-xl px-2 py-1'}
+                    />
+                     <MyBoton
+                        text={'Crear Vuelo'}
+                        linkTo={'/CrearVuelo'}
+                        className={'bg-white rounded-xl px-2 py-1'}
+                    />
+                </div>
             </div>
 
             <div className="w-9/12 max-w-md ">
                 <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
                     <h2 className="text-2xl font-bold mb-6 text-center">INICIAR SESION</h2>
                     <div className="mb-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="Usuario">
+                        <label className="block text-blue-700 text-sm font-bold mb-2" htmlFor="Usuario">
                             Usuario
                         </label>
                         <input
@@ -35,7 +49,7 @@ function FormLogin() {
                         />
                     </div>
                     <div className="mb-6 w-full flex flex-col">
-                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                        <label className="block text-blue-700 text-sm font-bold mb-2" htmlFor="password">
                             Password
                         </label>
                         <input
@@ -47,7 +61,7 @@ function FormLogin() {
                     </div>
                     <div className="w-full flex items-center justify-center">
                         <button
-                            className="w-9/12 bg-yellow-400 hover:bg-blue-700 text-white  py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline"
+                            className="w-9/12 bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline"
                             type="button"
                         >
                             INGRESAR
