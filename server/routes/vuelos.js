@@ -18,14 +18,22 @@ router.get('/consultar', (req, res) => {
   });
 });
 
+const generateRandomCode = (length) => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let code = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    code += characters.charAt(randomIndex);
+  }
+  return code;
+};
+
 router.post('/crear', (req, res) => {
-  // Aquí deberías obtener los datos del cuerpo de la solicitud (req.body)
-  // y luego realizar la lógica de inserción en la base de datos.
-  // Asumo que el cuerpo de la solicitud contiene los datos necesarios para crear un vuelo.
+  const { coddestino, codaerolinea, salaabordaje, horasalida, horallegada } = req.body;
 
-  const { codvuelo, coddestino, codaerolinea, salaabordaje, horasalida, horallegada } = req.body;
+  // Generar el código de vuelo de longitud 6
+  const codvuelo = generateRandomCode(6);
 
-  // Asumiendo que tu tabla en la base de datos se llama "vuelo"
   const query = 'INSERT INTO vuelo (codvuelo, coddestino, codaerolinea, salaabordaje, horasalida, horallegada) VALUES (?, ?, ?, ?, ?, ?)';
 
   connection.query(query, [codvuelo, coddestino, codaerolinea, salaabordaje, horasalida, horallegada], (error, results) => {
@@ -37,5 +45,6 @@ router.post('/crear', (req, res) => {
     }
   });
 });
+
 
 module.exports = router;
