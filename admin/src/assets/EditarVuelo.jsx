@@ -2,9 +2,7 @@ import React from 'react'
 import Box from './Box'
 import MyBoton from './MyBoton'
 
-
-function CrearVuelo
-    () {
+function EditarVuelo() {
     return (
         <Box>
             <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
@@ -27,6 +25,14 @@ function CrearVuelo
             <br />
             <form className="w-full bg-white rounded-lg flex flex-col px-4 py-4">
                 <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
+                    <div className="">
+                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                            Codigo de vuelo:
+                        </label>
+                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="1">ABC 123</option>
+                        </select>
+                    </div>
                     <div className="">
                         <label htmlFor="aerolinea" className="block mb-2 font-bold">
                             Aerolínea:
@@ -81,7 +87,7 @@ function CrearVuelo
 
                 <div className="w-full flex items-center justify-start py-3">
                     <MyBoton
-                        text={'REGISTRAR'}
+                        text={'EDITAR'}
                         className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
                     />
                 </div>
@@ -90,4 +96,4 @@ function CrearVuelo
     )
 }
 
-export default CrearVuelo
+export default EditarVuelo

@@ -7,6 +7,7 @@ import GestionVuelos from './assets/GestionVuelos';
 import ListaPasajeros from './assets/ListaPasajeros';
 import CrearPasajero from './assets/CrearPasajero';
 import CrearVuelo from './assets/CrearVuelo';
+import EditarVuelo from './assets/EditarVuelo';
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -20,6 +21,7 @@ function App() {
           <Route path="/ListaPasajeros" element={<ListaPasajeros />} />
           <Route path="/CrearPasajero" element={<CrearPasajero />} />
           <Route path="/CrearVuelo" element={<CrearVuelo />} />
+          <Route path='/editarvuelo' element={<EditarVuelo/>} />
           <Route path="/" element={<FormLogin />} />
         </Routes>
       </BrowserRouter>

@@ -10,7 +10,7 @@ function FormLogin() {
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elitt.
                 </p>
-                <div className='flex gap-2 items-center '>
+                <div className='flex gap-2 flex-wrap items-center '>
                     <MyBoton
                         text={'Gestion de vuelos'}
                         linkTo={'/GestionVuelos'}
@@ -29,6 +29,11 @@ function FormLogin() {
                      <MyBoton
                         text={'Crear Vuelo'}
                         linkTo={'/CrearVuelo'}
+                        className={'bg-white rounded-xl px-2 py-1'}
+                    />
+                    <MyBoton
+                        text={'Editar Vuelo'}
+                        linkTo={'/editarvuelo'}
                         className={'bg-white rounded-xl px-2 py-1'}
                     />
                 </div>
@@ -59,13 +64,12 @@ function FormLogin() {
                             placeholder="************"
                         />
                     </div>
-                    <div className="w-full flex items-center justify-center">
-                        <button
-                            className="w-9/12 bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline"
-                            type="button"
-                        >
-                            INGRESAR
-                        </button>
+                    <div className="w-full flex items-center justify-center py-3">
+                        <MyBoton
+                         text={'INGRESAR'}
+                         className={'w-9/12 bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
+                        />
+
                     </div>
                 </form>
             </div>
