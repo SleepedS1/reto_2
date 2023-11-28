@@ -20,7 +20,6 @@ const CrearVuelo = () => {
     }));
   };
 
-<<<<<<< HEAD
   const handleSubmit = async () => {
     try {
       // Envía la solicitud al backend
@@ -135,77 +134,3 @@ const CrearVuelo = () => {
 };
 
 export default CrearVuelo;
-=======
-                            </>
-                        }
-                    />
-                </div>
-            </div>
-            <br />
-            <form className="w-full bg-white rounded-lg flex flex-col px-4 py-4">
-                <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Aerolínea:
-                        </label>
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                            <option value="2" >959565</option>
-                            <option value="3">959565</option>
-                            <option value="4" >959565</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Sala de abordaje:
-                        </label>
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Destinos:
-                        </label>
-
-                        <select className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline">
-                            <option value="1">Armenia</option>
-                            <option value="2" >959565</option>
-                            <option value="3">959565</option>
-                            <option value="4" >959565</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="horaSalida" className="block mb-2 font-bold">
-                            Hora de salida:
-                        </label>
-                        <input
-                            type='time'
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-
-                        />
-                    </div>
-                    <div className="">
-                        <label htmlFor="horaLlegada" className="block mb-2 font-bold">
-                            Hora de llegada:
-                        </label>
-                        <input
-                            type='time'
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        />
-                    </div>
-                </div>
-
-                <div className="w-full flex items-center justify-start py-3">
-                    <MyBoton
-                        text={'REGISTRAR'}
-                        className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
-                    />
-                </div>
-            </form>
-        </Box>
-    )
-}
-
-export default CrearVuelo
->>>>>>> 7e579af57375bee049fd99cfc625c42d8e573a95
