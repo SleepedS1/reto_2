@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from './Box';
 import MyBoton from './MyBoton';
+import BtnBack from './BtnBack';
 
 function GestionVuelos() {
   const [vuelos, setVuelos] = useState([]);
@@ -87,6 +88,9 @@ function GestionVuelos() {
                 </svg>
               </>
             }
+          />
+           <BtnBack
+            linkTo={'/'}
           />
         </div>
       </div>
