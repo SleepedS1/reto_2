@@ -10,7 +10,7 @@ function NavAdmin() {
     };
     return (
         <>
-            <nav className={`${estilos.navAdmin} w-full bg-blue-800 items-center flex items-center text-white shadow-md justify-between m-auto py-4 px-7`}>
+            <nav className={`${estilos.navAdmin} w-full bg-blue-800  flex items-center text-white shadow-md justify-between m-auto py-4 px-7`}>
                 <div className={`${estilos.divLogo} flex items-center`}>
                     <img src="src/img/logo.png" alt="logoDorado" className="h-14 w-auto mr-4" />
                     <h1 className="text-lg font-bold">Panel administrativo</h1>
