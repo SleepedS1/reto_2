@@ -52,13 +52,11 @@ const CrearVuelo = () => {
             </label>
             <select
               name="codaerolinea"
-              className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
-              <option value="1">Armenia</option>
-              <option value="2">959565</option>
-              <option value="3">959565</option>
-              <option value="4">959565</option>
+              <option selected="true" disabled="disabled">Seleccionar...</option>
+              <option value="1">Avianca</option>
             </select>
           </div>
           <div className="">
@@ -70,7 +68,13 @@ const CrearVuelo = () => {
               className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
-              <option value="1">No encontrado</option>
+              <option selected="true" disabled="disabled">Seleccionar...</option>
+              <option value="A1">A1</option>
+              <option value="B2">B2</option>
+              <option value="C3">C3</option>
+              <option value="D4">D4</option>
+              <option value="E5">E5</option>
+
             </select>
           </div>
           <div className="">
@@ -82,6 +86,7 @@ const CrearVuelo = () => {
               className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
+              <option selected="true" disabled="disabled">Seleccionar...</option>
               <option value="1">Armenia</option>
               <option value="2">Barranquilla</option>
               <option value="3">Cali</option>
