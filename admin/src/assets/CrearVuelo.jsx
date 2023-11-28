@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Box from './Box';
-import BtnBack from './BtnBack';
+import BtnBack from './BtnBack'
 
 const CrearVuelo = () => {
   const [formData, setFormData] = useState({
@@ -22,17 +24,27 @@ const CrearVuelo = () => {
 
   const handleSubmit = async () => {
     try {
+      // Validar campos obligatorios
+      if (!formData.coddestino || !formData.codaerolinea || !formData.salaabordaje || !formData.horasalida || !formData.horallegada) {
+        // Mostrar alerta de error si faltan campos
+        return toast.error('Todos los campos son obligatorios.');
+      }
+
       // Envía la solicitud al backend
       const response = await axios.post('http://localhost:3000/dorado/vuelos/crear', formData);
+
+      // Muestra una notificación de éxito
+      toast.success('Vuelo creado con éxito');
 
       // Maneja la respuesta del servidor
       console.log(response.data.message); // Puedes mostrar un mensaje de éxito si lo deseas
     } catch (error) {
       console.error('Error al crear vuelo:', error.response.data.message);
-      // Puedes manejar el error mostrando un mensaje al usuario o realizando otras acciones necesarias
+      // Muestra una notificación de error
+      toast.error('Error al crear vuelo. Por favor, inténtalo de nuevo.');
     }
   };
-
+  
   return (
     <Box>
       <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
