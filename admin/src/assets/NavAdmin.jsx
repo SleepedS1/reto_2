@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MyBoton from './MyBoton'
 import estilos from './navAdmin.module.css'
 
 function NavAdmin() {
+    const [activo, setActivo] = useState(false);
+
+    const toggleActivo = () => {
+      setActivo(!activo);
+    };
     return (
         <>
             <nav className={`${estilos.navAdmin} w-full bg-blue-800 items-center flex items-center text-white shadow-md justify-between m-auto py-4 px-7`}>
-                <div className="flex items-center">
+                <div className={`${estilos.divLogo} flex items-center`}>
                     <img src="src/img/logo.png" alt="logoDorado" className="h-14 w-auto mr-4" />
                     <h1 className="text-lg font-bold">Panel administrativo</h1>
                 </div>
-                <div>
+                <div className='flex items-center justify-center gap-4'>
                     <MyBoton
                         text={'Salir'}
-                        className={'flex justify-between bg-white hover:bg-red-600 hover:text-black text-black font-bold py-2 px-4 rounded-xl'}
+                        className={`${estilos.myBoton} items-center bg-white hover:bg-red-400 hover:text-black text-black font-bold rounded-xl`}
                         linkTo={'/'} children={
                             <>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -22,7 +27,14 @@ function NavAdmin() {
                             </>
                         }
                     />
-
+                    <button
+                        className={`${estilos.btnMenu} ${activo ? estilos.open : ""}`}
+                        onClick={toggleActivo}
+                    >
+                        <span className={estilos.bar1}></span>
+                        <span className={estilos.bar2}></span>
+                        <span className={estilos.bar3}></span>
+                    </button>
                 </div>
             </nav>
 

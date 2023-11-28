@@ -1,5 +1,54 @@
-.navAdmin{
+.navAdmin {
     position: relative;
     top: 0;
     left: 0;
+}
+.myBoton{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 6px;
+}
+.btnMenu {
+   
+  }
+  
+  .bar1,
+  .bar2,
+  .bar3 {
+    display: block;
+    width: 35px;
+    height: 4px;
+    border-radius: 15%;
+    margin: 6px auto;
+    transition: all .5s;
+    background-color: #ffffff;
+  }
+  /* para que se transforme en X*/
+  .open .bar1 {
+    transform: rotate(-46deg) translate(-7px, 6px);
+  }
+  
+  .open .bar2 {
+    opacity: 0;
+  }
+  
+  .open .bar3 {
+    transform: rotate(45deg) translate(-6px, -6px);
+  }
+@media screen and (max-width: 750px) {
+    .navAdmin div img{
+        height: 45px;
+    }
+    .navAdmin div h1{
+        font-size: .7rem;
+    }
+    .myBoton{
+        display: none;
+        padding: 3px 4px;   
+    }
+    .divLogo{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }
