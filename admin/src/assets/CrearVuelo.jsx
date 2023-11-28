@@ -77,8 +77,11 @@ const CrearVuelo = () => {
               onChange={handleInputChange}
             >
               <option selected="true" disabled="disabled">Seleccionar...</option>
-              <option value="C30">C30</option>
-              <option value="C32">C32</option>
+              <option value="A1">A1</option>
+              <option value="B2">B2</option>
+              <option value="C3">C3</option>
+              <option value="D4">D4</option>
+              <option value="E5">E5</option>
 
             </select>
           </div>
