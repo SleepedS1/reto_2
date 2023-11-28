@@ -91,9 +91,12 @@ const CrearVuelo = () => {
               onChange={handleInputChange}
             >
               <option value="1">Armenia</option>
-              <option value="2">959565</option>
-              <option value="3">959565</option>
-              <option value="4">959565</option>
+              <option value="2">Barranquilla</option>
+              <option value="3">Cali</option>
+              <option value="4">Cartagena</option>
+              <option value="5">Medellin</option>
+              <option value="6">Santa Marta</option>
+              <option value="7">San Andres</option>
             </select>
           </div>
           <div className="">

@@ -3,49 +3,65 @@ import axios from 'axios';
 import Box from './Box';
 import MyBoton from './MyBoton';
 
-const DESTINOS = {
-  1: 'Armenia',
-  2: 'Barranquilla',
-  3: 'Cali',
-  4: 'Cartagena',
-  5: 'Medellin',
-  6: 'Santa Marta',
-  7: 'San Andres',
-};
-
-const AEROLINEAS = {
-    1: 'Avianca',
-    2: 'Satena',
-    3: 'Wingo',
-    4: 'Latam',
-    5: 'Ultra Air',
-    6: 'Easy Fly',
-  };
-
 function GestionVuelos() {
   const [vuelos, setVuelos] = useState([]);
+  const [destinos, setDestinos] = useState([]);
+  const [aerolineas, setAerolineas] = useState([]);
 
   useEffect(() => {
-    // Realizar la solicitud GET al servidor
     axios.get('http://localhost:3000/dorado/vuelos/consultar')
       .then(response => {
-        // Actualizar el estado con los datos recibidos
         setVuelos(response.data.vuelos || []);
       })
       .catch(error => {
         console.error('Error al obtener vuelos:', error);
-        // Manejar el error según tus necesidades
       });
-  }, []); // El segundo argumento del useEffect es un array vacío para que se ejecute solo una vez al montar el componente
 
-  const Destino = (codDestino) => {
-    return DESTINOS[codDestino] || 'No encontrado';
+    axios.get('http://localhost:3000/dorado/destinos')
+      .then(response => {
+        setDestinos(response.data.destinos || []);
+      })
+      .catch(error => {
+        console.error('Error al obtener destinos:', error);
+      });
+
+    axios.get('http://localhost:3000/dorado/aerolineas')
+      .then(response => {
+        setAerolineas(response.data.aerolineas || []);
+      })
+      .catch(error => {
+        console.error('Error al obtener aerolíneas:', error);
+      });
+  }, []);
+
+  
+  const getDestinoName = (codDestino) => {
+    const destino = destinos.find(destino => destino.coddestino === codDestino);
+    return destino ? destino.descripcion : 'No encontrado';
+  };
+  
+
+  const getAerolineaName = (codAerolinea) => {
+    const aerolinea = aerolineas.find(aerolinea => aerolinea.codaerolinea === codAerolinea);
+    return aerolinea ? aerolinea.descripcion : 'No encontrada';
   };
 
-  const Aerolineas = (codAerolinea) => {
-    return AEROLINEAS[codAerolinea] || 'No encontrada';
+
+  const calcularTiempoVuelo = (horaSalida, horaLlegada) => {
+    const horaSalidaDate = new Date(`2023-01-01T${horaSalida}`);
+    const horaLlegadaDate = new Date(`2023-01-01T${horaLlegada}`);
+    
+    // Calcula la diferencia en milisegundos
+    const diferencia = horaLlegadaDate - horaSalidaDate;
+  
+    // Convierte la diferencia a horas y minutos
+    const horas = Math.floor(diferencia / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+  
+    return `${horas}h ${minutos}m`;
   };
 
+  
   return (
     <Box>
       <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
@@ -94,12 +110,12 @@ function GestionVuelos() {
             {vuelos.map(vuelo => (
               <tr key={vuelo.codvuelo}>
                 <td className="border border-2 border-gray-300 px-4 py-2">{vuelo.codvuelo}</td>
-                <td className="border border-2 border-gray-300 px-4 py-2">{Destino(vuelo.coddestino)}</td>
-                <td className="border border-2 border-gray-300 px-4 py-2">{Aerolineas(vuelo.codaerolinea)}</td>
+                <td className="border border-2 border-gray-300 px-4 py-2">{getDestinoName(vuelo.coddestino)}</td>
+                <td className="border border-2 border-gray-300 px-4 py-2">{getAerolineaName(vuelo.codaerolinea)}</td>
                 <td className="border border-2 border-gray-300 px-4 py-2">{vuelo.salaabordaje}</td>
                 <td className="border border-2 border-gray-300 px-4 py-2">{vuelo.horasalida}</td>
                 <td className="border border-2 border-gray-300 px-4 py-2">{vuelo.horallegada}</td>
-                <td className="border border-2 border-gray-300 px-4 py-2">{/* Calcular el tiempo de vuelo aquí si es necesario */}</td>
+                <td className="border border-2 border-gray-300 px-4 py-2">{calcularTiempoVuelo(vuelo.horasalida, vuelo.horallegada)}</td>
                 <td className="border border-2 border-gray-300 px-4 py-2">
                   <button className="flex justify-between bg-white font-bold py-2 px-4 rounded-xl text-sky-500 shadow-lg">
                     Editar

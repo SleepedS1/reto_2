@@ -1,25 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
-const cors = require('cors'); 
-const connection = require('./connection');
-
-const vuelosRouter = require('./routes/vuelos');
-const loginRouter = require('./routes/login');
-const logoutRouter = require('./routes/logout');
-const pasajerosRouter = require('./routes/pasajeros');
+const routes = require('./routes');
 
 const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
-app.use(cors());
-
-app.use('/dorado/vuelos', vuelosRouter);
-app.use('/dorado/pasajeros', pasajerosRouter);
-app.use('/dorado/login', loginRouter);
-app.use('/dorado/logout', logoutRouter);
-
-
+app.use('/dorado', routes);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada.' });
