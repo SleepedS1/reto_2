@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import MyBoton from './MyBoton'
 import estilos from './navAdmin.module.css'
 
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure} from '@headlessui/react'
+
 
 function NavAdmin() {
     const [activo, setActivo] = useState(false);

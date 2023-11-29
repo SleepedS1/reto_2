@@ -22,16 +22,6 @@ function FormLogin() {
                         linkTo={'/CrearPasajero'}
                         className={'bg-white rounded-xl px-2 py-1'}
                     />
-                     <MyBoton
-                        text={'Crear Vuelo'}
-                        linkTo={'/CrearVuelo'}
-                        className={'bg-white rounded-xl px-2 py-1'}
-                    />
-                    <MyBoton
-                        text={'Editar Vuelo'}
-                        linkTo={'/editarvuelo'}
-                        className={'bg-white rounded-xl px-2 py-1'}
-                    />
                 </div>
 
             <div className="w-9/12 max-w-md ">
