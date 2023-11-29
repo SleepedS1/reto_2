@@ -5,11 +5,7 @@ import MyBoton from './MyBoton';
 function FormLogin() {
     return (
         <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-wrap min-h-screen`} >
-            <div className='w-4/12' >
-                <h1 className='text-white font-bold text-7xl'>Bienvenido</h1>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elitt.
-                </p>
+            <div className='' >
                 <div className='flex gap-2 flex-wrap items-center '>
                     <MyBoton
                         text={'Gestion de vuelos'}
