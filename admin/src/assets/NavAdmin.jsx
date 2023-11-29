@@ -62,8 +62,7 @@ function NavAdmin() {
                     </Disclosure.Panel>
                 </>
             </Disclosure>
-
-
+            <br />
         </>
 
     )
