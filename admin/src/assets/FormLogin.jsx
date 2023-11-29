@@ -5,8 +5,8 @@ import MyBoton from './MyBoton';
 function FormLogin() {
     return (
         <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-wrap min-h-screen`} >
-            <div className='' >
-                <div className='flex gap-2 flex-wrap items-center '>
+           
+                <div className='flex gap-2 flex-wrap items-center justify-center'>
                     <MyBoton
                         text={'Gestion de vuelos'}
                         linkTo={'/GestionVuelos'}
@@ -33,7 +33,6 @@ function FormLogin() {
                         className={'bg-white rounded-xl px-2 py-1'}
                     />
                 </div>
-            </div>
 
             <div className="w-9/12 max-w-md ">
                 <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">

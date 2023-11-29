@@ -39,41 +39,6 @@
 }
 
 @media screen and (max-width: 750px) {
-  /* .header div img {
-    height: 45px;
-  }
-
-  .header div h1 {
-    font-size: 1rem;
-  }
-
-  .btnMenu {
-    display: block;
-  }
-  .header.open{
-   position: absolute;
-    height: 100vh;
-    align-items: flex-start;
-  }
-  .nav.open{
-    background-color:rgb(255, 255, 255) ;
-    border-radius: 2rem;
-
-    width: 100%;
-    top: 100px;
-  }
-  .myBoton {
-    display: none;
-    padding: 3px 4px;
-  }
-
-  .myBoton.open {
-    display: block;
-  }
-
-  .header.open {
-    background: #000;
-  } */
 .myBoton{
   display: none;
 }
