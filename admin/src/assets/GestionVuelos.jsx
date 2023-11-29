@@ -80,6 +80,7 @@ function GestionVuelos() {
         <div className='flex gap-2 '>
           <MyBoton
             text={'Crear pasajero'}
+            linkTo={'/CrearPasajero'}
             className={'flex bg-white px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
             children={
               <>
