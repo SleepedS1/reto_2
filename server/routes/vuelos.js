@@ -55,5 +55,50 @@ function generateAlphanumericCode(length) {
   return code;
 }
 
+// ...
+
+// Ruta para obtener información de un vuelo específico
+router.get('/consultar/:codVuelo', (req, res) => {
+  const codVuelo = req.params.codVuelo;
+  const query = 'SELECT * FROM vuelo WHERE codvuelo = ?';
+  connection.query(query, [codVuelo], (error, results) => {
+    if (error) {
+      console.error('Error al consultar vuelo:', error);
+      res.status(500).json({ message: 'Error interno del servidor.' });
+    } else {
+      if (results.length > 0) {
+        res.status(200).json({ message: 'Consulta exitosa', vuelo: results[0] });
+      } else {
+        res.status(404).json({ message: 'No se encontró el vuelo.' });
+      }
+    }
+  });
+});
+
+// Ruta para editar un vuelo
+router.put('/editar/:codVuelo', (req, res) => {
+  const codVuelo = req.params.codVuelo;
+  const { coddestino, codaerolinea, salaabordaje, horasalida, horallegada } = req.body;
+
+  // Puedes realizar la validación de los datos antes de ejecutar la consulta
+  if (!coddestino || !codaerolinea || !salaabordaje || !horasalida || !horallegada) {
+    return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
+  }
+
+  const query = 'UPDATE vuelo SET coddestino = ?, codaerolinea = ?, salaabordaje = ?, horasalida = ?, horallegada = ? WHERE codvuelo = ?';
+  const values = [coddestino, codaerolinea, salaabordaje, horasalida, horallegada, codVuelo];
+
+  connection.query(query, values, (error, results) => {
+    if (error) {
+      console.error('Error al editar vuelo:', error);
+      res.status(500).json({ message: 'Error interno del servidor al editar vuelo.' });
+    } else {
+      res.status(200).json({ message: 'Vuelo editado exitosamente' });
+    }
+  });
+});
+
+// ...
+
 
 module.exports = router;

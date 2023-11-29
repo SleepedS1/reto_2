@@ -21,7 +21,7 @@ function App() {
           <Route path="/ListaPasajeros" element={<ListaPasajeros />} />
           <Route path="/CrearPasajero" element={<CrearPasajero />} />
           <Route path="/CrearVuelo" element={<CrearVuelo />} />
-          <Route path='/editarvuelo' element={<EditarVuelo/>} />
+          <Route path='/editarvuelo/:codVuelo' element={<EditarVuelo />} />
           <Route path="/" element={<FormLogin />} />
         </Routes>
       </BrowserRouter>

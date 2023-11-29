@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Box from './Box';
-import BtnBack from './BtnBack'
+import BtnBack from './BtnBack';
+import Swal from 'sweetalert2';
 
 const CrearVuelo = () => {
   const [formData, setFormData] = useState({
@@ -27,21 +26,21 @@ const CrearVuelo = () => {
       // Validar campos obligatorios
       if (!formData.coddestino || !formData.codaerolinea || !formData.salaabordaje || !formData.horasalida || !formData.horallegada) {
         // Mostrar alerta de error si faltan campos
-        return toast.error('Todos los campos son obligatorios.');
+        return Swal.fire('Error', 'Todos los campos son obligatorios.', 'error');
       }
 
       // Envía la solicitud al backend
       const response = await axios.post('http://localhost:3000/dorado/vuelos/crear', formData);
 
-      // Muestra una notificación de éxito
-      toast.success('Vuelo creado con éxito');
+      // Muestra una alerta de éxito
+      Swal.fire('Éxito', 'Vuelo creado con éxito', 'success');
 
       // Maneja la respuesta del servidor
       console.log(response.data.message); // Puedes mostrar un mensaje de éxito si lo deseas
     } catch (error) {
       console.error('Error al crear vuelo:', error.response.data.message);
-      // Muestra una notificación de error
-      toast.error('Error al crear vuelo. Por favor, inténtalo de nuevo.');
+      // Muestra una alerta de error
+      Swal.fire('Error', 'Error al crear vuelo. Por favor, inténtalo de nuevo.', 'error');
     }
   };
   
@@ -50,7 +49,7 @@ const CrearVuelo = () => {
       <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
         <div className='flex gap-2 '>
           <BtnBack
-            linkTo={'/'}
+            linkTo={'/GestionVuelos'}
           />
 
         </div>
@@ -69,6 +68,11 @@ const CrearVuelo = () => {
             >
               <option selected="true" disabled="disabled">Seleccionar...</option>
               <option value="1">Avianca</option>
+              <option value="2">Satena</option>
+              <option value="3">Wingo</option>
+              <option value="4">Latam</option>
+              <option value="5">Ultra Air</option>
+              <option value="6">Easyfly</option>
             </select>
           </div>
           <div className="">
