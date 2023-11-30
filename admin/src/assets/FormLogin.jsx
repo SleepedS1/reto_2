@@ -1,22 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import estilos from './formLogin.module.css';
 import MyBoton from './MyBoton';
 
 function FormLogin() {
-    useEffect(() => {
-        // Aplicar estilos al body cuando el componente se monta
-        document.body.style.backgroundImage = 'url("src/img/piloto.jpg")';
-        document.body.style.backgroundSize = 'cover';
-
-        // Limpiar los estilos del body cuando el componente se desmonta
-        return () => {
-            document.body.style.backgroundImage = '';
-            document.body.style.backgroundSize = '';
-        };
-    }, []);
-
     return (
-        <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-col min-h-screen`} >
+        <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-col py-5`} >
            
                 <div className='flex gap-2 flex-wrap items-center justify-center'>
                     <MyBoton
