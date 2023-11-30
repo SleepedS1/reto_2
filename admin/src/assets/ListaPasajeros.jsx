@@ -25,7 +25,7 @@ function ListaPasajeros() {
                             <th className="px-4 py-2">CANCELAR VUELO</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='rounded-lg'>
                         <tr >
                             <td className="border border-2 border-gray-300 px-4 py-2">2323</td>
                             <td className="border border-2 border-gary-300 px-4 py-2">Bogota</td>
