@@ -87,7 +87,14 @@ function EditarVuelo() {
     };
 
     if (!vuelo) {
-        return <p>Cargando...</p>;
+        return (
+            <div className='w-full h-96 flex justify-center items-center flex-col'>
+                <div className="custom-loader"></div>
+                <h1 className='text-yellow-500'>Cargando...</h1>
+            </div>
+        
+        )
+        
     }
 
     return (
