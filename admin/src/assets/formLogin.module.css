@@ -1,6 +1,7 @@
-.contenedorLogin{
-    background-image: url('src/img/piloto.jpg');
-    background-repeat: no-repeat ;
+.contenedorLogin {
+    /*     background-image: url('src/img/piloto.jpg'); */
+    background-color: gray;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
