@@ -14,6 +14,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+-- Volcando estructura para tabla el_dorado_db.aerolinea
+CREATE TABLE IF NOT EXISTS `aerolinea` (
+  `codaerolinea` int DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 -- Volcando datos para la tabla el_dorado_db.aerolinea: ~6 rows (aproximadamente)
 INSERT INTO `aerolinea` (`codaerolinea`, `descripcion`) VALUES
 	(1, 'Avianca'),
@@ -22,6 +28,12 @@ INSERT INTO `aerolinea` (`codaerolinea`, `descripcion`) VALUES
 	(4, 'Latam'),
 	(5, 'Ultra Air'),
 	(6, 'Easyfly');
+
+-- Volcando estructura para tabla el_dorado_db.destino
+CREATE TABLE IF NOT EXISTS `destino` (
+  `coddestino` int DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla el_dorado_db.destino: ~7 rows (aproximadamente)
 INSERT INTO `destino` (`coddestino`, `descripcion`) VALUES
@@ -33,11 +45,43 @@ INSERT INTO `destino` (`coddestino`, `descripcion`) VALUES
 	(6, 'Santa Marta'),
 	(7, 'San Andres');
 
+-- Volcando estructura para tabla el_dorado_db.pasajero
+CREATE TABLE IF NOT EXISTS `pasajero` (
+  `id` int NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `apellidos` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `telefono` bigint NOT NULL,
+  `codvuelo` varchar(6) NOT NULL DEFAULT '0',
+  `foto` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 -- Volcando datos para la tabla el_dorado_db.pasajero: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla el_dorado_db.usuario
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` int NOT NULL,
+  `username` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `token` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla el_dorado_db.usuario: ~1 rows (aproximadamente)
 INSERT INTO `usuario` (`id`, `username`, `password`, `token`) VALUES
 	(1, 'administrador', 'administrador', '1');
+
+-- Volcando estructura para tabla el_dorado_db.vuelo
+CREATE TABLE IF NOT EXISTS `vuelo` (
+  `codvuelo` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `coddestino` int NOT NULL,
+  `codaerolinea` int NOT NULL,
+  `salaabordaje` varchar(50) NOT NULL DEFAULT '0',
+  `horasalida` time NOT NULL,
+  `horallegada` time NOT NULL,
+  PRIMARY KEY (`codvuelo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla el_dorado_db.vuelo: ~5 rows (aproximadamente)
 INSERT INTO `vuelo` (`codvuelo`, `coddestino`, `codaerolinea`, `salaabordaje`, `horasalida`, `horallegada`) VALUES
