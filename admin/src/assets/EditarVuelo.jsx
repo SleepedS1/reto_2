@@ -4,6 +4,7 @@ import Box from './Box';
 import MyBoton from './MyBoton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import MyImg from './MyImg';
 
 function EditarVuelo() {
     const { codVuelo } = useParams();
@@ -91,8 +92,10 @@ function EditarVuelo() {
 
     return (
         <Box>
-            <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
-                <div className='flex gap-2 '>
+            <div className='flex w-full justify-between items-center text-violet-700 font-bold bg-white rounded-xl px-5 py-3 shadow-lg'>
+                <h1>Editar vuelo</h1>
+                <div className='flex items-center gap-2 '>
+                    
                     <MyBoton
                         text={'Volver'}
                         linkTo={'/gestionvuelos'}
@@ -108,96 +111,105 @@ function EditarVuelo() {
                 </div>
             </div>
             <br />
-            <form className="w-full bg-white rounded-lg flex flex-col px-4 py-4" onSubmit={handleSubmit}>
-                <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
-                    <div className="">
-                        <label htmlFor="codVuelo" className="block mb-2 font-bold">
-                            Código de vuelo:
-                        </label>
-                        <div className="py-2 px-3 border rounded-lg">{vuelo.codvuelo}</div>
+            <div className='flex gap-1 justify-center'>
+            <MyImg
+               src='src/img/avion2.png'
+                className1={' '}
+                className2={'myimgg'}
+                />
+                <form className="myForm bg-white rounded-lg flex flex-col px-4 py-4" onSubmit={handleSubmit}>
+                    <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
+                        <div className="">
+                            <label htmlFor="codVuelo" className="block mb-2 font-bold">
+                                Código de vuelo:
+                            </label>
+                            <div className="py-2 px-3 border rounded-lg">{vuelo.codvuelo}</div>
+                        </div>
+                        <div className="">
+                            <label htmlFor="destino" className="block mb-2 font-bold">
+                                Destino:
+                            </label>
+                            <select
+                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                value={selectedDestino}
+                                onChange={(e) => setSelectedDestino(e.target.value)}
+                            >
+                                <option disabled>Seleccionar...</option>
+                                {destinos.map(destino => (
+                                    <option key={destino.coddestino} value={destino.coddestino}>
+                                        {destino.descripcion}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="">
+                            <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                                Aerolínea:
+                            </label>
+                            <select
+                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                value={selectedAerolinea}
+                                onChange={(e) => setSelectedAerolinea(e.target.value)}
+                            >
+                                <option disabled>Seleccionar...</option>
+                                {aerolineas.map(aerolinea => (
+                                    <option key={aerolinea.codaerolinea} value={aerolinea.codaerolinea}>
+                                        {aerolinea.descripcion}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className="">
+                            <label htmlFor="salaabordaje" className="block mb-2 font-bold">
+                                Sala de abordaje:
+                            </label>
+                            <select
+                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                value={selectedSala}
+                                onChange={(e) => setSelectedSala(e.target.value)}
+                            >
+                                <option disabled>Seleccionar...</option>
+                                <option value="A1">A1</option>
+                                <option value="B2">B2</option>
+                                <option value="C3">C3</option>
+                                <option value="D4">D4</option>
+                                <option value="E5">E5</option>
+                            </select>
+                        </div>
+                        <div className="">
+                            <label htmlFor="horaSalida" className="block mb-2 font-bold">
+                                Hora de salida:
+                            </label>
+                            <input
+                                type='time'
+                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                value={horaSalida}
+                                onChange={(e) => setHoraSalida(e.target.value)}
+                            />
+                        </div>
+                        <div className="">
+                            <label htmlFor="horaLlegada" className="block mb-2 font-bold">
+                                Hora de llegada:
+                            </label>
+                            <input
+                                type='time'
+                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                value={horaLlegada}
+                                onChange={(e) => setHoraLlegada(e.target.value)}
+                            />
+                        </div>
                     </div>
-                    <div className="">
-                        <label htmlFor="destino" className="block mb-2 font-bold">
-                            Destino:
-                        </label>
-                        <select
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            value={selectedDestino}
-                            onChange={(e) => setSelectedDestino(e.target.value)}
-                        >
-                            <option disabled>Seleccionar...</option>
-                            {destinos.map(destino => (
-                                <option key={destino.coddestino} value={destino.coddestino}>
-                                    {destino.descripcion}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
-                            Aerolínea:
-                        </label>
-                        <select
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            value={selectedAerolinea}
-                            onChange={(e) => setSelectedAerolinea(e.target.value)}
-                        >
-                            <option disabled>Seleccionar...</option>
-                            {aerolineas.map(aerolinea => (
-                                <option key={aerolinea.codaerolinea} value={aerolinea.codaerolinea}>
-                                    {aerolinea.descripcion}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="salaabordaje" className="block mb-2 font-bold">
-                            Sala de abordaje:
-                        </label>
-                        <select
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            value={selectedSala}
-                            onChange={(e) => setSelectedSala(e.target.value)}
-                        >
-                            <option disabled>Seleccionar...</option>
-                            <option value="A1">A1</option>
-                            <option value="B2">B2</option>
-                            <option value="C3">C3</option>
-                            <option value="D4">D4</option>
-                            <option value="E5">E5</option>
-                        </select>
-                    </div>
-                    <div className="">
-                        <label htmlFor="horaSalida" className="block mb-2 font-bold">
-                            Hora de salida:
-                        </label>
-                        <input
-                            type='time'
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            value={horaSalida}
-                            onChange={(e) => setHoraSalida(e.target.value)}
+                    <div className="w-full flex items-center justify-start py-3">
+                        <MyBoton
+                            text={'EDITAR'}
+                            type="submit"
+                            className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
                         />
                     </div>
-                    <div className="">
-                        <label htmlFor="horaLlegada" className="block mb-2 font-bold">
-                            Hora de llegada:
-                        </label>
-                        <input
-                            type='time'
-                            className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                            value={horaLlegada}
-                            onChange={(e) => setHoraLlegada(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div className="w-full flex items-center justify-start py-3">
-                    <MyBoton
-                        text={'EDITAR'}
-                        type="submit"
-                        className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
-                    />
-                </div>
-            </form>
+                </form>
+               
+            </div>
+
         </Box>
     );
 }

@@ -5,7 +5,7 @@ function BtnBack({ linkTo }) {
         <MyBoton
             text={'Volver'}
             linkTo={linkTo}
-            className={'flex bg-white px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
+            className={'flex bg-red-400 px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
             children={
                 <>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
