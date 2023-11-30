@@ -1,18 +1,13 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: '',
   database: 'el_dorado_db',
-});
-
-connection.connect((err) => {
-  if (err) {
-    console.error('Error de conexión a MySQL:', err);
-    throw err;
-  }
-  console.log('Conexión exitosa a MySQL.');
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 module.exports = connection;
