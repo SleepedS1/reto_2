@@ -14,6 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Volcando estructura de base de datos para el_dorado_db
+CREATE DATABASE IF NOT EXISTS `el_dorado_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `el_dorado_db`;
+
 -- Volcando estructura para tabla el_dorado_db.aerolinea
 CREATE TABLE IF NOT EXISTS `aerolinea` (
   `codaerolinea` int DEFAULT NULL,
