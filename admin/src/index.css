@@ -43,6 +43,7 @@ z-index: -1;
   .panelh1{
    font-size: .7rem;
    margin-bottom: -90px;
+   font-weight: 200;
 }
 }
 @media screen and (max-width: 1030px) {

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Box from './Box';
-import BtnBack from './BtnBack';
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import axios from "axios";
+import Box from "./Box";
+import BtnBack from "./BtnBack";
+import Swal from "sweetalert2";
 
 const CrearVuelo = () => {
   const [formData, setFormData] = useState({
-    coddestino: '',
-    codaerolinea: '',
-    salaabordaje: '',
-    horasalida: '',
-    horallegada: '',
+    coddestino: "",
+    codaerolinea: "",
+    salaabordaje: "",
+    horasalida: "",
+    horallegada: "",
   });
 
   const handleInputChange = (e) => {
@@ -24,39 +24,53 @@ const CrearVuelo = () => {
   const handleSubmit = async () => {
     try {
       // Validar campos obligatorios
-      if (!formData.coddestino || !formData.codaerolinea || !formData.salaabordaje || !formData.horasalida || !formData.horallegada) {
+      if (
+        !formData.coddestino ||
+        !formData.codaerolinea ||
+        !formData.salaabordaje ||
+        !formData.horasalida ||
+        !formData.horallegada
+      ) {
         // Mostrar alerta de error si faltan campos
-        return Swal.fire('Error', 'Todos los campos son obligatorios.', 'error');
+        return Swal.fire(
+          "Error",
+          "Todos los campos son obligatorios.",
+          "error"
+        );
       }
 
       // Envía la solicitud al backend
-      const response = await axios.post('http://localhost:3000/dorado/vuelos/crear', formData);
+      const response = await axios.post(
+        "http://localhost:3000/dorado/vuelos/crear",
+        formData
+      );
 
       // Muestra una alerta de éxito
-      Swal.fire('Éxito', 'Vuelo creado con éxito', 'success');
+      Swal.fire("Éxito", "Vuelo creado con éxito", "success");
 
       // Maneja la respuesta del servidor
       console.log(response.data.message); // Puedes mostrar un mensaje de éxito si lo deseas
     } catch (error) {
-      console.error('Error al crear vuelo:', error.response.data.message);
+      console.error("Error al crear vuelo:", error.response.data.message);
       // Muestra una alerta de error
-      Swal.fire('Error', 'Error al crear vuelo. Por favor, inténtalo de nuevo.', 'error');
+      Swal.fire(
+        "Error",
+        "Error al crear vuelo. Por favor, inténtalo de nuevo.",
+        "error"
+      );
     }
   };
-  
+
   return (
     <Box>
-      <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
-        <div className='flex gap-2 '>
-          <BtnBack
-            linkTo={'/GestionVuelos'}
-          />
-
+      <div className="flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg">
+        <div className="flex gap-2 ">
+          <BtnBack linkTo={"/GestionVuelos"} />
         </div>
       </div>
       <br />
-      <form className="w-full bg-white flex flex-col px-4 py-4">
-        <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
+      <form className="w-full bg-white flex flex-col px-4 py-4 rounded-lg">
+        <div className="w-full gap-4 grid-cols-3 grid-rows-2 ">
           <div className="">
             <label htmlFor="codaerolinea" className="block mb-2 font-bold">
               Aerolínea
@@ -66,7 +80,9 @@ const CrearVuelo = () => {
               className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
-              <option selected="true" disabled="disabled">Seleccionar...</option>
+              <option selected="true" disabled="disabled">
+                Seleccionar...
+              </option>
               <option value="1">Avianca</option>
               <option value="2">Satena</option>
               <option value="3">Wingo</option>
@@ -84,13 +100,14 @@ const CrearVuelo = () => {
               className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
-              <option selected="true" disabled="disabled">Seleccionar...</option>
+              <option selected="true" disabled="disabled">
+                Seleccionar...
+              </option>
               <option value="A1">A1</option>
               <option value="B2">B2</option>
               <option value="C3">C3</option>
               <option value="D4">D4</option>
               <option value="E5">E5</option>
-
             </select>
           </div>
           <div className="">
@@ -102,7 +119,9 @@ const CrearVuelo = () => {
               className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleInputChange}
             >
-              <option selected="true" disabled="disabled">Seleccionar...</option>
+              <option selected="true" disabled="disabled">
+                Seleccionar...
+              </option>
               <option value="1">Armenia</option>
               <option value="2">Barranquilla</option>
               <option value="3">Cali</option>
@@ -112,27 +131,29 @@ const CrearVuelo = () => {
               <option value="7">San Andres</option>
             </select>
           </div>
-          <div className="">
-            <label htmlFor="horasalida" className="block mb-2 font-bold">
-              Hora de salida
-            </label>
-            <input
-              type='time'
-              name="horasalida"
-              className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="">
-            <label htmlFor="horallegada" className="block mb-2 font-bold">
-              Hora de llegada
-            </label>
-            <input
-              type='time'
-              name="horallegada"
-              className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-              onChange={handleInputChange}
-            />
+          <div className="flex gap-1 justify-center">
+            <div className="">
+              <label htmlFor="horasalida" className="block mb-2 font-bold">
+                Hora de salida
+              </label>
+              <input
+                type="time"
+                name="horasalida"
+                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="">
+              <label htmlFor="horallegada" className="block mb-2 font-bold">
+                Hora de llegada
+              </label>
+              <input
+                type="time"
+                name="horallegada"
+                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
         </div>
         <div className="w-full flex items-center justify-start">
@@ -145,7 +166,7 @@ const CrearVuelo = () => {
           </button>
         </div>
       </form>
-    </Box >
+    </Box>
   );
 };
 

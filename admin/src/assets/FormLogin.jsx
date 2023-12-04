@@ -26,7 +26,7 @@ function FormLogin() {
   return (
     <div className={`${estilos.contenedorLogin} flex items-center justify-center flex-col py-5`}>
       <div className="w-9/12 max-w-md ">
-        <form className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+        <form className="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
           <h2 className="text-2xl font-bold mb-6 text-center">INICIAR SESIÓN</h2>
           <div className="mb-4">
             <label className="block text-blue-700 text-sm font-bold mb-2" htmlFor="Usuario">
