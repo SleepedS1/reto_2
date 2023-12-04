@@ -1,6 +1,6 @@
 import React from 'react'
-import Box from './Box'
-import BtnBack from './BtnBack';
+import Box from './componets/Box'
+import BtnBack from './componets/BtnBack';
 
 function ListaPasajeros() {
     return (

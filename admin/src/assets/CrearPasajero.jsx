@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Box from './Box';
-import MyBoton from './MyBoton';
-import BtnBack from './BtnBack';
+import Box from './componets/Box';
+import MyBoton from './componets/MyBoton';
+import BtnBack from './componets/BtnBack';
 import axios from 'axios';
 
 function CrearPasajero() {

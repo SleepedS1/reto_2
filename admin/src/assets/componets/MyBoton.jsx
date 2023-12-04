@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const MyBoton = ({ className, text, linkTo, children }) => {
+const MyBoton = ({ className, text, linkTo, children, onClick }) => {
 
     const buttonContent = linkTo ? (
       <Link to={linkTo} className={className}>
@@ -9,7 +9,7 @@ const MyBoton = ({ className, text, linkTo, children }) => {
         {children}
       </Link>
     ) : (
-      <button className={className}>
+      <button onClick={onClick} className={className}>
       {text}
       {children}
     </button>

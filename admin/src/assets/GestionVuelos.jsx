@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Box from './Box';
-import MyBoton from './MyBoton';
-import BtnBack from './BtnBack';
+import Box from './componets/Box';
+import MyBoton from './componets/MyBoton';
+import BtnBack from './componets/BtnBack';
 import { useNavigate } from 'react-router-dom';
 
 function GestionVuelos() {

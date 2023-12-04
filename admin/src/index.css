@@ -30,11 +30,6 @@ table{
 .myForm{
   width: 50%;
 }
-.myimgg{
-z-index: -1;
-
-  
-}
 @media screen and (max-width: 700px) {
  
   .myForm{

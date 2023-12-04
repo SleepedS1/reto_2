@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Box from "./Box";
-import BtnBack from "./BtnBack";
+import Box from "./componets/Box";
+import BtnBack from "./componets/BtnBack";
 import Swal from "sweetalert2";
 
 const CrearVuelo = () => {

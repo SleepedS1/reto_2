@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Box from './Box';
-import MyBoton from './MyBoton';
+import Box from './componets/Box';
+import MyBoton from './componets/MyBoton';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import MyImg from './MyImg';
+import MyImg from './componets/MyImg';
 
 function EditarVuelo() {
     const { codVuelo } = useParams();
