@@ -5,7 +5,8 @@ import BtnBack from './componets/BtnBack';
 function ListaPasajeros() {
     return (
         <Box>
-            <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
+            <div className='flex w-full justify-between items-center text-violet-700 font-bold bg-white rounded-xl px-5 py-3 shadow-lg'>
+                <h1>Lista de pasajeros</h1>
                 <div className='flex gap-2 '>
                     <BtnBack
                         linkTo={'/'}

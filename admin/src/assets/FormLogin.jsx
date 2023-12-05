@@ -36,8 +36,8 @@ function FormLogin() {
   };
 
   return (
-    <div className={`${estilos.contenedorLogin} flex flex-col py-5`}>
-      <div className="flex w-full justify-end  rounded-xl px-5 py-3 ">
+    <div className={`${estilos.contenedorLogin} `}>
+      <div className="flex w-full justify-end absolute rounded-xl px-5 py-3 ">
         <div className="flex gap-2 ">
           <MyBoton
             onClick={openModal}
@@ -47,7 +47,12 @@ function FormLogin() {
 
         </div>
       </div>
-      <br />
+{/*     
+      <MyImg
+        src='src/img/fondo.png'
+        className1={'w-full '}
+        className2={'w-full'}
+      /> */}
       <MyModal
         show={showModal}
         onClick={closeModal}
@@ -92,11 +97,7 @@ function FormLogin() {
           </>
         }
       />
-      {/* <MyImg
-        src='src/img/piloto.jpg'
-        className1={'w-full '}
-        className2={'myimgg'}
-      /> */}
+     
     </div>
   );
 }

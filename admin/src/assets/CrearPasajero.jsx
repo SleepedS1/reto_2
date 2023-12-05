@@ -52,10 +52,11 @@ function CrearPasajero() {
     };
     return (
         <Box>
-            <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
+            <div className='flex w-full justify-between items-center text-violet-700 font-bold bg-white rounded-xl px-5 py-3 shadow-lg'>
+                <h1>Crear Pasajero</h1>
                 <div className='flex gap-2 '>
                     <BtnBack
-                        linkTo={'/'}
+                        linkTo={'/GestionVuelos'}
                     />
                 </div>
             </div>

@@ -92,9 +92,9 @@ function EditarVuelo() {
                 <div className="custom-loader"></div>
                 <h1 className='text-yellow-500'>Cargando...</h1>
             </div>
-        
+
         )
-        
+
     }
 
     return (
@@ -102,7 +102,7 @@ function EditarVuelo() {
             <div className='flex w-full justify-between items-center text-violet-700 font-bold bg-white rounded-xl px-5 py-3 shadow-lg'>
                 <h1>Editar vuelo</h1>
                 <div className='flex items-center gap-2 '>
-                    
+
                     <MyBoton
                         text={'Volver'}
                         linkTo={'/gestionvuelos'}
@@ -118,11 +118,11 @@ function EditarVuelo() {
                 </div>
             </div>
             <br />
-            <div className='flex gap-1 justify-center'>
-            <MyImg
-               src='src/img/avion2.png'
-                className1={' '}
-                className2={'myimgg'}
+            <div className='flex gap-1 justify-center relative'>
+                <MyImg
+                    src='src/img/myimg5.png'
+                    className1={'myimg flex justify-center'}
+                    className2={'h-96'}
                 />
                 <form className="myForm bg-white rounded-lg flex flex-col px-4 py-4" onSubmit={handleSubmit}>
                     <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
@@ -130,7 +130,7 @@ function EditarVuelo() {
                             <label htmlFor="codVuelo" className="block mb-2 font-bold">
                                 Código de vuelo:
                             </label>
-                            <div className="py-2 px-3 border rounded-lg">{vuelo.codvuelo}</div>
+                            <div className="shadow bg-white py-2 px-3 border rounded-lg">{vuelo.codvuelo}</div>
                         </div>
                         <div className="">
                             <label htmlFor="destino" className="block mb-2 font-bold">
@@ -214,7 +214,7 @@ function EditarVuelo() {
                         />
                     </div>
                 </form>
-               
+
             </div>
 
         </Box>

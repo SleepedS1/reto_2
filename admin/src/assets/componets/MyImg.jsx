@@ -6,7 +6,7 @@ function MyImg({ src, className1, className2 }) {
 
     return (
         <div className={className1}>
-            <img src={imageUrl} alt="Avión" className={className2} />
+            <img src={imageUrl} alt="" className={className2} />
         </div>
     );
 }
