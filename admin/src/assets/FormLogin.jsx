@@ -4,6 +4,8 @@ import axios from 'axios';
 import MyBoton from './componets/MyBoton';
 import { useNavigate } from 'react-router-dom';
 import MyModal from './componets/MyModal';
+import MyImg from './componets/MyImg';
+
 
 function FormLogin() {
   const [showModal, setShowModal] = useState(false);
@@ -90,11 +92,11 @@ function FormLogin() {
           </>
         }
       />
-      <MyImg
+      {/* <MyImg
         src='src/img/piloto.jpg'
         className1={'w-full '}
         className2={'myimgg'}
-      />
+      /> */}
     </div>
   );
 }

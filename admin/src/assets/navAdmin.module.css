@@ -1,3 +1,8 @@
 .navegador{
-    height: 100px;
+    position: fixed; /* Fija la barra de navegación */
+    top: 0; /* La coloca en la parte superior */
+    left: 0;
+    width: 100%; /* Ocupa el ancho completo */
+    background-color: #333; /* Cambia el color a tu preferencia */
+    z-index: 1000; 
 }
