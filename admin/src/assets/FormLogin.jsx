@@ -37,22 +37,32 @@ function FormLogin() {
 
   return (
     <div className={`${estilos.contenedorLogin} `}>
-      <div className="flex w-full justify-end absolute rounded-xl px-5 py-3 ">
-        <div className="flex gap-2 ">
-          <MyBoton
+      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 py-20">
+    <div class="container mx-auto text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
+        <p class="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
+        <MyBoton
             onClick={openModal}
             text={'Login'}
-            className={'bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
+            className={'bg-white hover:text-blackflex px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
           />
 
+    </div>
+</div>
+
+<div class="container mx-auto py-12">
+    <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="md:w-1/2 mb-1 md:mb-0">
+      <img src="src/img/hero.jpg" alt="" />
         </div>
-      </div>
-{/*     
-      <MyImg
-        src='src/img/fondo.png'
-        className1={'w-full '}
-        className2={'w-full'}
-      /> */}
+        <div class="md:w-1/2 px-2">
+            <h2 class="text-3xl font-bold mb-4">Aeropuerto Dorado</h2>
+            <p class="text-lg mb-6">El Aeropuerto Dorado es un centro de operaciones aéreas donde el control y la gestión de vuelos se realiza de manera eficiente y organizada.</p>
+            <p class="text-lg mb-6">Nuestro sistema proporciona a los administradores las herramientas necesarias para controlar horarios, rutas, disponibilidad de pistas y más, facilitando la gestión de vuelos y mejorando la experiencia de los pasajeros.</p>
+            <a href="#" class="text-blue-600 font-semibold hover:underline">Más información</a>
+        </div>
+    </div>
+</div>
       <MyModal
         show={showModal}
         onClick={closeModal}
@@ -94,6 +104,7 @@ function FormLogin() {
                 </div>
               </form>
             </div>
+
           </>
         }
       />
