@@ -37,9 +37,9 @@ function FormLogin() {
 
   return (
     <div className={`${estilos.contenedorLogin} `}>
-      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 py-20">
+      <div class="bg-gradient-to-r from-yellow-500 to-black py-20">
     <div class="container mx-auto text-center">
-        <h1 class="text-4xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
+        <h1 class="text-6xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
         <p class="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
         <MyBoton
             onClick={openModal}
@@ -55,7 +55,7 @@ function FormLogin() {
         <div class="md:w-1/2 mb-1 md:mb-0">
       <img src="src/img/hero.jpg" alt="" />
         </div>
-        <div class="md:w-1/2 px-2">
+        <div class="md:w-1/2 px-4">
             <h2 class="text-3xl font-bold mb-4">Aeropuerto Dorado</h2>
             <p class="text-lg mb-6">El Aeropuerto Dorado es un centro de operaciones aéreas donde el control y la gestión de vuelos se realiza de manera eficiente y organizada.</p>
             <p class="text-lg mb-6">Nuestro sistema proporciona a los administradores las herramientas necesarias para controlar horarios, rutas, disponibilidad de pistas y más, facilitando la gestión de vuelos y mejorando la experiencia de los pasajeros.</p>
@@ -72,7 +72,7 @@ function FormLogin() {
               <form className=" bg-white shadow-md rounded-xl px-3 pt-6" onSubmit={handleLogin}>
                 <h2 className="text-2xl font-bold mb-6 text-center">INICIAR SESIÓN</h2>
                 <div className="mb-4">
-                  <label className="block text-blue-700 text-sm font-bold mb-2" htmlFor="Usuario">
+                  <label className="block text-yellow-500 text-sm font-bold mb-2" htmlFor="Usuario">
                     Usuario
                   </label>
                   <input
@@ -84,7 +84,7 @@ function FormLogin() {
                   />
                 </div>
                 <div className="mb-6 w-full flex flex-col">
-                  <label className="block text-blue-700 text-sm font-bold mb-2" htmlFor="password">
+                  <label className="block text-yellow-500 text-sm font-bold mb-2" htmlFor="password">
                     Password
                   </label>
                   <input
@@ -99,7 +99,7 @@ function FormLogin() {
                   <MyBoton
                     text={'INGRESAR'}
                     type="submit"
-                    className={'w-9/12 bg-gray-200 hover:text-white hover:bg-blue-700 text-blue-800 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
+                    className={'w-9/12 bg-gray-200 hover:text-white hover:bg-yellow-500 text-yellow-500 font-bold py-1 px-2 rounded-lg focus:outline-none focus:shadow-outline'}
                   />
                 </div>
               </form>
