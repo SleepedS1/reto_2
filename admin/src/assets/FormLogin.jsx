@@ -37,14 +37,14 @@ function FormLogin() {
 
   return (
     <div className={`${estilos.contenedorLogin} `}>
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-20">
+      <div className="bg-gradient-to-r from-yellow-500 to-black py-20">
     <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
         <p className="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
         <MyBoton
             onClick={openModal}
             text={'Login'}
-            className={'bg-white hover:text-blackflex px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
+            className={'bg-white hover:text-black px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
           />
 
     </div>
