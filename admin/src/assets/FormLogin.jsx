@@ -37,17 +37,10 @@ function FormLogin() {
 
   return (
     <div className={`${estilos.contenedorLogin} `}>
-<<<<<<< HEAD
       <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-20">
     <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
         <p className="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
-=======
-      <div class="bg-gradient-to-r from-yellow-500 to-black py-20">
-    <div class="container mx-auto text-center">
-        <h1 class="text-6xl font-bold text-white mb-4">Bienvenido al Aeropuerto Dorado</h1>
-        <p class="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
->>>>>>> d6e093e1a44bcca9471a38877c6914dbd5b7cc90
         <MyBoton
             onClick={openModal}
             text={'Login'}
@@ -62,19 +55,11 @@ function FormLogin() {
         <div className="md:w-1/2 mb-1 md:mb-0">
       <img src="src/img/hero.jpg" alt="" />
         </div>
-<<<<<<< HEAD
         <div className="md:w-1/2 px-2">
             <h2 className="text-3xl font-bold mb-4">Aeropuerto Dorado</h2>
             <p className="text-lg mb-6">El Aeropuerto Dorado es un centro de operaciones aéreas donde el control y la gestión de vuelos se realiza de manera eficiente y organizada.</p>
             <p className="text-lg mb-6">Nuestro sistema proporciona a los administradores las herramientas necesarias para controlar horarios, rutas, disponibilidad de pistas y más, facilitando la gestión de vuelos y mejorando la experiencia de los pasajeros.</p>
             <a href="#" className="text-blue-600 font-semibold hover:underline">Más información</a>
-=======
-        <div class="md:w-1/2 px-4">
-            <h2 class="text-3xl font-bold mb-4">Aeropuerto Dorado</h2>
-            <p class="text-lg mb-6">El Aeropuerto Dorado es un centro de operaciones aéreas donde el control y la gestión de vuelos se realiza de manera eficiente y organizada.</p>
-            <p class="text-lg mb-6">Nuestro sistema proporciona a los administradores las herramientas necesarias para controlar horarios, rutas, disponibilidad de pistas y más, facilitando la gestión de vuelos y mejorando la experiencia de los pasajeros.</p>
-            <a href="#" class="text-blue-600 font-semibold hover:underline">Más información</a>
->>>>>>> d6e093e1a44bcca9471a38877c6914dbd5b7cc90
         </div>
     </div>
 </div>
