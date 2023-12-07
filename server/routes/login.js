@@ -3,7 +3,7 @@ const router = express.Router();
 const connection = require('../connection');
 const util = require('util');
 const jwt = require('jsonwebtoken');
-const verifyAsync = util.promisify(jwt.verify)
+const verifyAsync = util.promisify(jwt.verify);
 
 // Clave secreta para JWT (deberías cambiar esto en un entorno de producción)
 const secretKey = '123';
@@ -21,8 +21,6 @@ router.post('/', async (req, res) => {
         const [results] = await connection.execute(query, [username, password]);
 
         if (results.length > 0) {
-            req.session.authenticated = true;
-            req.session.username = username;
             // Credenciales válidas, generar un token
             const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
 
@@ -37,25 +35,22 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Middleware para verificar el token en rutas protegidas
-const verifyToken = async (req, res, next) => {
+// Ejemplo de ruta protegida (sin manejo de sesiones)
+router.get('/ruta-protegida', (req, res) => {
+    // Simplemente verifica el token, no hay manejo de sesiones
     const token = req.headers.authorization;
 
     if (!token) {
         return res.status(401).json({ error: 'Token no proporcionado' });
     }
 
-    try {
-        const decoded = await verifyAsync(token, secretKey);
-        req.user = decoded;
-        next();
-    } catch (err) {
-        return res.status(401).json({ error: 'Token inválido' });
-    }
-};
-// Ejemplo de ruta protegida
-router.get('/ruta-protegida', verifyToken, (req, res) => {
-    res.json({ message: 'Acceso permitido a la ruta protegida', user: req.user });
+    verifyAsync(token, secretKey)
+        .then(decoded => {
+            res.json({ message: 'Acceso permitido a la ruta protegida', user: decoded });
+        })
+        .catch(err => {
+            return res.status(401).json({ error: 'Token inválido' });
+        });
 });
 
 module.exports = router;
