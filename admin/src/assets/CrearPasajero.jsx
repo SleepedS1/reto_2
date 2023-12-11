@@ -50,7 +50,7 @@ function CrearPasajero() {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3000/dorado/pasajeros/crear', formData);
-            console.log('Respuesta del servidor:', response.data);
+            console.log('Respuesta por parte del servidor:', response.data);
             Swal.fire("Éxito", "Pasajero creado con éxito", "success");
         } catch (error) {
             console.error('Error al crear pasajero:', error);
