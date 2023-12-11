@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from './componets/Box';
 import MyBoton from './componets/MyBoton';
-import BtnBack from './componets/BtnBack';
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 function GestionVuelos() {
   const navigate = useNavigate();
@@ -14,7 +14,13 @@ function GestionVuelos() {
   useEffect(() => {
     axios.get('http://localhost:3000/dorado/vuelos/consultar')
       .then(response => {
-        setVuelos(response.data.vuelos || []);
+        const vuelosOrdenados = response.data.vuelos.sort((a, b) => {
+          const horaSalidaA = new Date(`2023-01-01T${a.horasalida}`).getTime();
+          const horaSalidaB = new Date(`2023-01-01T${b.horasalida}`).getTime();
+          return horaSalidaA - horaSalidaB;
+        });
+
+        setVuelos(vuelosOrdenados || []);
       })
       .catch(error => {
         console.error('Error al obtener vuelos:', error);
@@ -27,7 +33,6 @@ function GestionVuelos() {
       .catch(error => {
         console.error('Error al obtener destinos:', error);
       });
-
 
     axios.get('http://localhost:3000/dorado/aerolineas')
       .then(response => {
@@ -43,17 +48,38 @@ function GestionVuelos() {
     navigate(`/editarvuelo/${codVuelo}`);
   };
 
+  const handleVerPasajerosClick = async (codVuelo) => {
+    try {
+      // Hacer la llamada al backend para obtener la lista de pasajeros del vuelo específico
+      const response = await axios.get(`http://localhost:3000/dorado/pasajeros/consultar/${codVuelo}`);
+      const pasajeros = response.data.pasajeros || [];
+  
+      // Verificar si hay pasajeros
+      if (pasajeros.length > 0) {
+        // Si hay pasajeros, navegar a la página listapasajeros
+        navigate(`/listapasajeros/${codVuelo}`);
+      } else {
+        // Si no hay pasajeros, mostrar un alert
+        console.log('Este vuelo no tiene pasajeros.');
+      }
+    } catch (error) {
+      console.error('Error al obtener pasajeros:', error);
+      Swal.fire("Error", "Este vuelo no tiene ningún pasajero registrado.", "error");
+    }
+  };
+  
+
+
+
   const getDestinoName = (codDestino) => {
     const destino = destinos.find(destino => destino.coddestino === codDestino);
     return destino ? destino.descripcion : 'No encontrado';
   };
 
-
   const getAerolineaName = (codAerolinea) => {
     const aerolinea = aerolineas.find(aerolinea => aerolinea.codaerolinea === codAerolinea);
     return aerolinea ? aerolinea.descripcion : 'No encontrada';
   };
-
 
   const calcularTiempoVuelo = (horaSalida, horaLlegada) => {
     const horaSalidaDate = new Date(`2023-01-01T${horaSalida}`);
@@ -78,6 +104,7 @@ function GestionVuelos() {
     <Box>
       <div className='flex w-full justify-end bg-white rounded-xl px-5 py-3 shadow-lg'>
         <div className='flex gap-2 '>
+
           <MyBoton
             text={'Crear pasajero'}
             linkTo={'/CrearPasajero'}
@@ -159,7 +186,10 @@ function GestionVuelos() {
                   </button>
                 </td>
                 <td className="border border-2 border-gray-300 px-4 py-2">
-                  <button className="flex justify-between bg-white text-white font-bold py-2 px-4 rounded-xl text-yellow-500 shadow-lg">
+                  <button
+                    className="flex justify-between bg-white text-white font-bold py-2 px-4 rounded-xl text-yellow-500 shadow-lg"
+                    onClick={() => handleVerPasajerosClick(vuelo.codvuelo)}
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

@@ -3,11 +3,12 @@ import Box from './componets/Box';
 import MyBoton from './componets/MyBoton';
 import BtnBack from './componets/BtnBack';
 import axios from 'axios';
+import Swal from "sweetalert2";
 
 function CrearPasajero() {
     const [codVuelos, setCodVuelos] = useState([]);
     const [formData, setFormData] = useState({
-        identificacion: '',
+        id: '',
         nombres: '',
         apellidos: '',
         email: '',
@@ -45,11 +46,24 @@ function CrearPasajero() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí puedes enviar los datos del formulario, incluyendo formData, a tu API para crear el pasajero
-        console.log('Formulario enviado:', formData);
+        try {
+            const response = await axios.post('http://localhost:3000/dorado/pasajeros/crear', formData);
+            console.log('Respuesta del servidor:', response.data);
+            Swal.fire("Éxito", "Pasajero creado con éxito", "success");
+        } catch (error) {
+            console.error('Error al crear pasajero:', error);
+            if (error.response && error.response.status === 400) {
+                Swal.fire("Error", "Todos los campos son obligatorios.", "error");
+            } else if (error.response && error.response.status === 409) {
+                Swal.fire("Error", "Este pasajero ya existe en la base de datos.", "error");
+            } else {
+                Swal.fire("Error", "Este pasajero ya existe en la base de datos.", "error");
+            }
+        }
     };
+
     return (
         <Box>
             <div className='flex w-full justify-between items-center text-violet-700 font-bold bg-white rounded-xl px-5 py-3 shadow-lg'>
@@ -64,35 +78,47 @@ function CrearPasajero() {
             <form className="w-full bg-white rounded-lg flex flex-col px-4 py-4" onSubmit={handleSubmit}>
                 <div className='w-full gap-4 grid-cols-3 grid-rows-2'>
                     <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                        <label htmlFor="id" className="block mb-2 font-bold">
                             Identificacion:
                         </label>
                         <input
+                            name="id"
+                            value={formData.id}
+                            onChange={handleInputChange}
                             className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
                     <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                        <label htmlFor="nombres" className="block mb-2 font-bold">
                             Nombres:
                         </label>
                         <input
+                            name="nombres"
+                            value={formData.nombres}
+                            onChange={handleInputChange}
                             className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
                     <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                        <label htmlFor="apellidos" className="block mb-2 font-bold">
                             Apellidos:
                         </label>
                         <input
+                            name="apellidos"
+                            value={formData.apellidos}
+                            onChange={handleInputChange}
                             className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
                     <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                        <label htmlFor="email" className="block mb-2 font-bold">
                             Email:
                         </label>
                         <input
+                            name="email"
                             type='email'
+                            value={formData.email}
+                            onChange={handleInputChange}
                             className="peer shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                         <p className="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">
@@ -100,10 +126,13 @@ function CrearPasajero() {
                         </p>
                     </div>
                     <div className="">
-                        <label htmlFor="aerolinea" className="block mb-2 font-bold">
+                        <label htmlFor="telefono" className="block mb-2 font-bold">
                             Telefono:
                         </label>
                         <input
+                            name="telefono"
+                            value={formData.telefono}
+                            onChange={handleInputChange}
                             className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                         />
                     </div>
@@ -131,13 +160,16 @@ function CrearPasajero() {
                         </div>
                         <label className="block">
                             <span className="sr-only">Cargar foto de perfil</span>
-                            <input type="file" className="block w-full text-sm text-slate-500
-                        file:mr-4 file:py-2 file:px-4
-                        file:rounded-full file:border-0
-                        file:text-sm file:font-semibold
-                        file:bg-blue-50 file:text-blue-700
-                        hover:file:bg-blue-100
-                        "/>
+                            <input
+                                type="file"
+                                className="block w-full text-sm text-slate-500
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-blue-50 file:text-blue-700
+                                hover:file:bg-blue-100"
+                                onChange={handleFileChange}
+                            />
                         </label>
                     </div>
                 </div>
@@ -154,4 +186,4 @@ function CrearPasajero() {
     )
 }
 
-export default CrearPasajero
+export default CrearPasajero;

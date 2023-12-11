@@ -18,7 +18,7 @@ function App() {
         <NavAdmin />
         <Routes>
           <Route path="/GestionVuelos" element={<GestionVuelos />} />
-          <Route path="/ListaPasajeros" element={<ListaPasajeros />} />
+          <Route path="/listapasajeros/:codVuelo" element={<ListaPasajeros />} />
           <Route path="/CrearPasajero" element={<CrearPasajero />} />
           <Route path="/CrearVuelo" element={<CrearVuelo />} />
           <Route path='/editarvuelo/:codVuelo' element={<EditarVuelo />} />

@@ -51,23 +51,24 @@ router.get('/consultar/:codVuelo', async (req, res) => {
 
 router.put('/editar/:codVuelo', async (req, res) => {
   const codVuelo = req.params.codVuelo;
-  const { coddestino, codaerolinea, salaabordaje, horasalida, horallegada } = req.body;
+  const { horasalida, horallegada } = req.body;
 
-  if (!coddestino || !codaerolinea || !salaabordaje || !horasalida || !horallegada) {
-    return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
+  if (!horasalida || !horallegada) {
+    return res.status(400).json({ message: 'Las horas de salida y llegada son obligatorias.' });
   }
 
-  const query = 'UPDATE vuelo SET coddestino = ?, codaerolinea = ?, salaabordaje = ?, horasalida = ?, horallegada = ? WHERE codvuelo = ?';
-  const values = [coddestino, codaerolinea, salaabordaje, horasalida, horallegada, codVuelo];
+  const query = 'UPDATE vuelo SET horasalida = ?, horallegada = ? WHERE codvuelo = ?';
+  const values = [horasalida, horallegada, codVuelo];
 
   try {
     await connection.execute(query, values);
-    res.status(200).json({ message: 'Vuelo editado exitosamente' });
+    res.status(200).json({ message: 'Datos editados con éxito.' });
   } catch (error) {
-    console.error('Error al editar vuelo:', error);
-    res.status(500).json({ message: 'Error interno del servidor al editar vuelo.' });
+    console.error('Error al editar horas de vuelo:', error);
+    res.status(500).json({ message: 'Error interno del servidor al editar horas de vuelo.' });
   }
 });
+
 
 function generateAlphanumericCode(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

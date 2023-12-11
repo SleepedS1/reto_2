@@ -5,6 +5,7 @@ import MyBoton from './componets/MyBoton';
 import { useNavigate } from 'react-router-dom';
 import MyModal from './componets/MyModal';
 import MyImg from './componets/MyImg';
+import Swal from "sweetalert2";
 
 
 function FormLogin() {
@@ -31,6 +32,8 @@ function FormLogin() {
       // Si el inicio de sesión es exitoso, redirige a la página de GestionVuelos
       navigate('/GestionVuelos');
     } catch (error) {
+      Swal.fire("Error", "Credenciales inválidas.", "error");
+
       console.error('Error de inicio de sesión:', error.response?.data?.error || 'Error desconocido');
     }
   };
@@ -43,7 +46,7 @@ function FormLogin() {
         <p className="text-lg text-white mb-8">El lugar donde el control y la organización de vuelos está en tus manos.</p>
         <MyBoton
             onClick={openModal}
-            text={'Login'}
+            text={'Ingresar al panel'}
             className={'bg-white hover:text-black px-2 py-1 rounded-xl shadow-lg text-black font-bold'}
           />
 

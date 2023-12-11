@@ -17,6 +17,7 @@ function EditarVuelo() {
     const [horaSalida, setHoraSalida] = useState('');
     const [horaLlegada, setHoraLlegada] = useState('');
 
+
     useEffect(() => {
         axios.get(`http://localhost:3000/dorado/vuelos/consultar/${codVuelo}`)
             .then(response => {
@@ -86,6 +87,25 @@ function EditarVuelo() {
         }
     };
 
+    const destinosMap = {
+        1: 'Armenia',
+        2: 'Barranquilla',
+        3: 'Cali',
+        4: 'Cartagena',
+        5: 'Barranquilla',
+        6: 'Medellin',
+        7: 'San Andres',
+    };
+
+    const aerolineasMap = {
+        1: 'Avianca',
+        2: 'Satena',
+        3: 'Wingo',
+        4: 'Latam',
+        5: 'Ultra Air',
+        6: 'Easyfly',
+    };
+
     if (!vuelo) {
         return (
             <div className='w-full h-96 flex justify-center items-center flex-col'>
@@ -136,52 +156,20 @@ function EditarVuelo() {
                             <label htmlFor="destino" className="block mb-2 font-bold">
                                 Destino:
                             </label>
-                            <select
-                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                value={selectedDestino}
-                                onChange={(e) => setSelectedDestino(e.target.value)}
-                            >
-                                <option disabled>Seleccionar...</option>
-                                {destinos.map(destino => (
-                                    <option key={destino.coddestino} value={destino.coddestino}>
-                                        {destino.descripcion}
-                                    </option>
-                                ))}
-                            </select>
+                            <div className="shadow bg-white py-2 px-3 border rounded-lg">{destinosMap[vuelo.coddestino]}</div>
                         </div>
                         <div className="">
                             <label htmlFor="aerolinea" className="block mb-2 font-bold">
                                 Aerolínea:
                             </label>
-                            <select
-                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                value={selectedAerolinea}
-                                onChange={(e) => setSelectedAerolinea(e.target.value)}
-                            >
-                                <option disabled>Seleccionar...</option>
-                                {aerolineas.map(aerolinea => (
-                                    <option key={aerolinea.codaerolinea} value={aerolinea.codaerolinea}>
-                                        {aerolinea.descripcion}
-                                    </option>
-                                ))}
-                            </select>
+                            <div className="shadow bg-white py-2 px-3 border rounded-lg">{aerolineasMap[vuelo.codaerolinea]}</div>
                         </div>
                         <div className="">
                             <label htmlFor="salaabordaje" className="block mb-2 font-bold">
                                 Sala de abordaje:
                             </label>
-                            <select
-                                className="shadow appearance-none border rounded-lg w-full m-auto py-2 px-6 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                                value={selectedSala}
-                                onChange={(e) => setSelectedSala(e.target.value)}
-                            >
-                                <option disabled>Seleccionar...</option>
-                                <option value="A1">A1</option>
-                                <option value="B2">B2</option>
-                                <option value="C3">C3</option>
-                                <option value="D4">D4</option>
-                                <option value="E5">E5</option>
-                            </select>
+                            <div className="shadow bg-white py-2 px-3 border rounded-lg">{vuelo.salaabordaje}</div>
+
                         </div>
                         <div className="">
                             <label htmlFor="horaSalida" className="block mb-2 font-bold">
